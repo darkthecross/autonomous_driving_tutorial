@@ -17,12 +17,12 @@ repeat_step = False
 inner_map = MapGenerator()
 map_height = 20
 map_width = 30
-map_info = inner_map.EmptyMap()
+# map_info = inner_map.EmptyMap()
 # map_info = inner_map.LoadMap('map_simple.txt')
-# map_info = inner_map.LoadMap('map_barriers.txt')
-map_info = inner_map.LoadMap('map_blocked.txt')
+map_info = inner_map.LoadMap('map_barriers.txt')
+# map_info = inner_map.LoadMap('map_blocked.txt')
 
-p = Planner(Coordinate(0, 0), Coordinate(44, 59), map_info)
+p = Planner(Coordinate(0, 0), Coordinate(map_height-1, map_width-1), map_info)
 
 def draw_grid(i, j):
     rect((grid_size+grid_border)*j+grid_border, (grid_size+grid_border)*i+grid_border, grid_size, grid_size)

@@ -24,7 +24,8 @@ class Planner():
         neighbors = coord_path.coord.GetNeighbors()
         real_successors = []
         for n in neighbors:
-            if self.map_info[n.x][n.y] == 0:
+            next_coord = Coordinate(n.x, n.y)
+            if self.map_info[n.x][n.y] == 0 and not next_coord in self.visited:
                 tmp_list = list(coord_path.coord_list)
                 tmp_list.append(n)
                 real_successors.append(Path(n, tmp_list))
