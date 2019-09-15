@@ -30,7 +30,7 @@ class Planner():
             # distant = math.sqrt( (self.end.x-n.x)**2 + (self.end.y-n.y)**2 ) + math.sqrt( (self.start.x-n.x)**2 + (self.start.y-n.y)**2 )
             xx = (self.end.x + self.start.x )/ 2
             yy = (self.end.y + self.start.y )/ 2
-            distant = math.sqrt( (xx-n.x)**2 + (yye-n.y)**2 )
+            distant = math.sqrt( (xx-n.x)**2 + (yy-n.y)**2 )
             next_coord = Coordinate(n.x, n.y, distant)
             n.h=distant
             if self.map_info[n.x][n.y] == 0 and not next_coord in self.visited:
@@ -48,9 +48,6 @@ class Planner():
     def PutNextCoord(self, next_coord_path):
         self.sucessors.append(next_coord_path)
         self.sucessors = sorted(self.sucessors, key=lambda x: x.coord.h)
-        for s in self.sucessors:
-            print(s.coord)
-        print("")
 
     # Return: completed, succeed, path
     def Step(self):
